@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Carton label Generator</title>
+    <script src="js/jspdf.umd.min.js"></script>
+    <script>  window.jsPDF = window.jspdf.jsPDF</script>
+    <script src="js/arial_normal.js" ></script>
+    <script src="js/arial_bold.js" ></script>
+    <script src="js/app.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+        <div class="header__container">
+            <img src="img/tls-logo.svg" alt="TLS logo" class="header__logo">
+            <ul class="header__list list">
+                <li class="list__item"><a href="#" class="list__link">Labels</a></li>
+                <li class="list__item"><a href="#" class="list__link">Packing list</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="page">
+        <div class="page__container">
+            <section class="page__label-section labels">
+                <h2 class="labels__title">Carton label Generator</h2>
+                <div class="labels__templates">
+                    <label class="labels__template" for="assa">Assa Abloy<input type="radio" id="assa" name="template" value="assa" checked></label>
+                    <label class="labels__template" for="tls">TLS<input type="radio" id="tls" name="template" value="tls"></label>
+                    <label class="labels__template" for="ncl">NCL<input type="radio" id="ncl" name="template" value="ncl"></label>
+                </div>
+                <img id="logo" src="img/assa_logo.png" hidden />
+                <div class="labels__form assa isShow">
+                    <label class="labels__label">
+                    Enter MXP number
+                    <input class="labels__field" type="text" id="mxp" placeholder="Enter MXP number" />
+                    </label>
+                    <label class="labels__label">
+                        Enter project name:
+                        <input class="labels__field" type="text" id="projectName" placeholder="Enter project name:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter product code:
+                        <input class="labels__field" type="text" id="productCode" placeholder="Enter product code:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter Vessel name (if required):
+                        <input class="labels__field" type="text" id="vesselName" placeholder="Enter Vessel name (if required):" />
+                    </label>
+                    <label class="labels__label">
+                        Enter PO/SO numbers Assa Abloy:
+                        <input class="labels__field" type="text" id="assaPoSo" placeholder="Enter PO/SO numbers Assa Abloy:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter TLS oredr number (or customer):
+                        <input class="labels__field" type="text" id="tlsOrder" placeholder="Enter TLS oredr number:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter items quantity in a inner box:
+                        <input class="labels__field" type="text" id="innerBoxQuantity" placeholder="Enter items quantity in a inner box (pcs.):" value="200"/>
+                    </label>
+                    <label class="labels__label">
+                        Enter items quantity in a box:
+                        <input class="labels__field" type="text" id="outerBoxQuantity" placeholder="Enter quantity of the cards in a box (pcs.):" value="3000"/>
+                    </label>
+                    <label class="labels__label">
+                        Enter total items quantity:
+                        <input class="labels__field" type="text" id="quantityInOrder" placeholder="Enter total cards cards quantity (pcs.):"/>
+                    </label>
+                </div>
+                 <div class="labels__form tls">
+                    <label class="labels__label">
+                        Enter project name:
+                        <input class="labels__field" type="text" id="projectName" placeholder="Enter project name:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter product code:
+                        <input class="labels__field" type="text" id="productCode" placeholder="Enter product code:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter TLS PO number:
+                        <input class="labels__field" type="text" id="tlsOrder" placeholder="Enter TLS oredr number:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter items quantity in a inner box:
+                        <input class="labels__field" type="text" id="innerBoxQuantity" placeholder="Enter items quantity in a inner box (pcs.):" value="200"/>
+                    </label>
+                    <label class="labels__label">
+                        Enter items quantity in a box:
+                        <input class="labels__field" type="text" id="outerBoxQuantity" placeholder="Enter quantity of the cards in a box (pcs.):" value="3000"/>
+                    </label>
+                    <label class="labels__label">
+                        Enter total items quantity:
+                        <input class="labels__field" type="text" id="quantityInOrder" placeholder="Enter total cards cards quantity (pcs.):"/>
+                    </label>
+                </div>
+                <div class="labels__form ncl">
+                    <label class="labels__label">
+                        Enter MXP number (NSLLLLLLLLLLLLL)
+                        <input class="labels__field" type="text" id="mxp" placeholder="Enter MXP number" />
+                    </label>
+                    <label class="labels__label">
+                        Enter project name:
+                        <input class="labels__field" type="text" id="projectName" placeholder="Enter project name:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter product code:
+                        <input class="labels__field" type="text" id="productCode" placeholder="Enter product code:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter Vessel name (if required):
+                        <input class="labels__field" type="text" id="vesselName" placeholder="Enter Vessel name (if required):" />
+                    </label>
+                    <label class="labels__label">
+                        Enter PO/SO numbers Assa Abloy:
+                        <input class="labels__field" type="text" id="assaPoSo" placeholder="Enter PO/SO numbers Assa Abloy:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter TLS oredr number (or customer):
+                        <input class="labels__field" type="text" id="tlsOrder" placeholder="Enter TLS oredr number:" />
+                    </label>
+                    <label class="labels__label">
+                        Enter items quantity in a inner box:
+                        <input class="labels__field" type="text" id="innerBoxQuantity" placeholder="Enter items quantity in a inner box (pcs.):" value="200"/>
+                    </label>
+                    <label class="labels__label">
+                        Enter items quantity in a box:
+                        <input class="labels__field" type="text" id="outerBoxQuantity" placeholder="Enter quantity of the cards in a box (pcs.):" value="3000"/>
+                    </label>
+                    <label class="labels__label">
+                        Enter total items quantity:
+                        <input class="labels__field" type="text" id="quantityInOrder" placeholder="Enter total cards cards quantity (pcs.):"/>
+                    </label>
+                </div>
+                <div class="labels__buttons">
+                    <button id="btnInner" class="labels__gen" type="button">Inner box label</button>
+                    <button id="btnOuter" class="labels__gen" type="button">Outer carton label</button>
+                </div>
+                
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__text">© 2025 | TLS Boca Systems Poland</p>
+        </div>
+    </footer>   
+  </div>
+</body>
+</html>

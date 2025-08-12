@@ -5,8 +5,8 @@
     <title>Carton label Generator</title>
     <script src="js/jspdf.umd.min.js"></script>
     <script>  window.jsPDF = window.jspdf.jsPDF</script>
-    <script src="js/arial_normal.js" ></script>
-    <script src="js/arial_bold.js" ></script>
+    <script src="js/arial_normal.js?v=6"></script>
+    <script src="js/arial_bold.js?v=6"></script>
     <script src="js/app.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
@@ -32,106 +32,107 @@
                     <label class="labels__template" for="ncl">NCL<input type="radio" id="ncl" name="template" value="ncl"></label>
                 </div>
                 <img id="logo" src="img/assa_logo.png" hidden />
+                <img id="ncl-logo" src="img/ncl_logo.png" hidden />
                 <div class="labels__form assa isShow">
                     <label class="labels__label">
                     Enter MXP number
-                    <input class="labels__field" type="text" id="mxp" placeholder="Enter MXP number" />
+                    <input class="labels__field" type="text" id="assa-mxp" placeholder="Enter MXP number" />
                     </label>
                     <label class="labels__label">
                         Enter project name:
-                        <input class="labels__field" type="text" id="projectName" placeholder="Enter project name:" />
+                        <input class="labels__field" type="text" id="assa-projectName" placeholder="Enter project name:" />
                     </label>
                     <label class="labels__label">
                         Enter product code:
-                        <input class="labels__field" type="text" id="productCode" placeholder="Enter product code:" />
+                        <input class="labels__field" type="text" id="assa-productCode" placeholder="Enter product code:" />
                     </label>
                     <label class="labels__label">
                         Enter Vessel name (if required):
-                        <input class="labels__field" type="text" id="vesselName" placeholder="Enter Vessel name (if required):" />
+                        <input class="labels__field" type="text" id="assa-vesselName" placeholder="Enter Vessel name (if required):" />
                     </label>
                     <label class="labels__label">
                         Enter PO/SO numbers Assa Abloy:
-                        <input class="labels__field" type="text" id="assaPoSo" placeholder="Enter PO/SO numbers Assa Abloy:" />
+                        <input class="labels__field" type="text" id="assa-assaPoSo" placeholder="Enter PO/SO numbers Assa Abloy:" />
                     </label>
                     <label class="labels__label">
                         Enter TLS oredr number (or customer):
-                        <input class="labels__field" type="text" id="tlsOrder" placeholder="Enter TLS oredr number:" />
+                        <input class="labels__field" type="text" id="assa-tlsOrder" placeholder="Enter TLS oredr number:" />
                     </label>
                     <label class="labels__label">
                         Enter items quantity in a inner box:
-                        <input class="labels__field" type="text" id="innerBoxQuantity" placeholder="Enter items quantity in a inner box (pcs.):" value="200"/>
+                        <input class="labels__field" type="text" id="assa-innerBoxQuantity" placeholder="Enter items quantity in a inner box (pcs.):" value="200"/>
                     </label>
                     <label class="labels__label">
                         Enter items quantity in a box:
-                        <input class="labels__field" type="text" id="outerBoxQuantity" placeholder="Enter quantity of the cards in a box (pcs.):" value="3000"/>
+                        <input class="labels__field" type="text" id="assa-outerBoxQuantity" placeholder="Enter quantity of the cards in a box (pcs.):" value="3000"/>
                     </label>
                     <label class="labels__label">
                         Enter total items quantity:
-                        <input class="labels__field" type="text" id="quantityInOrder" placeholder="Enter total cards cards quantity (pcs.):"/>
+                        <input class="labels__field" type="text" id="assa-quantityInOrder" placeholder="Enter total cards cards quantity (pcs.):"/>
                     </label>
                 </div>
                  <div class="labels__form tls">
                     <label class="labels__label">
                         Enter project name:
-                        <input class="labels__field" type="text" id="projectName" placeholder="Enter project name:" />
+                        <input class="labels__field" type="text" id="tls-projectName" placeholder="Enter project name:" />
                     </label>
                     <label class="labels__label">
                         Enter product code:
-                        <input class="labels__field" type="text" id="productCode" placeholder="Enter product code:" />
+                        <input class="labels__field" type="text" id="tls-productCode" placeholder="Enter product code:" />
                     </label>
                     <label class="labels__label">
                         Enter TLS PO number:
-                        <input class="labels__field" type="text" id="tlsOrder" placeholder="Enter TLS oredr number:" />
+                        <input class="labels__field" type="text" id="tls-tlsOrder" placeholder="Enter TLS oredr number:" />
                     </label>
                     <label class="labels__label">
                         Enter items quantity in a inner box:
-                        <input class="labels__field" type="text" id="innerBoxQuantity" placeholder="Enter items quantity in a inner box (pcs.):" value="200"/>
+                        <input class="labels__field" type="text" id="tls-innerBoxQuantity" placeholder="Enter items quantity in a inner box (pcs.):" value="2000"/>
                     </label>
                     <label class="labels__label">
                         Enter items quantity in a box:
-                        <input class="labels__field" type="text" id="outerBoxQuantity" placeholder="Enter quantity of the cards in a box (pcs.):" value="3000"/>
+                        <input class="labels__field" type="text" id="tls-outerBoxQuantity" placeholder="Enter quantity of the cards in a box (pcs.):" value="10000"/>
                     </label>
                     <label class="labels__label">
                         Enter total items quantity:
-                        <input class="labels__field" type="text" id="quantityInOrder" placeholder="Enter total cards cards quantity (pcs.):"/>
+                        <input class="labels__field" type="text" id="tls-quantityInOrder" placeholder="Enter total cards cards quantity (pcs.):"/>
                     </label>
                 </div>
                 <div class="labels__form ncl">
                     <label class="labels__label">
-                        Enter MXP number (NSLLLLLLLLLLLLL)
-                        <input class="labels__field" type="text" id="mxp" placeholder="Enter MXP number" />
+                        Enter MXP number
+                        <input class="labels__field" type="text" id="ncl-mxp" placeholder="Enter MXP number" />
                     </label>
                     <label class="labels__label">
                         Enter project name:
-                        <input class="labels__field" type="text" id="projectName" placeholder="Enter project name:" />
+                        <input class="labels__field" type="text" id="ncl-projectName" placeholder="Enter project name:" />
                     </label>
                     <label class="labels__label">
                         Enter product code:
-                        <input class="labels__field" type="text" id="productCode" placeholder="Enter product code:" />
+                        <input class="labels__field" type="text" id="ncl-productCode" placeholder="Enter product code:" />
                     </label>
                     <label class="labels__label">
                         Enter Vessel name (if required):
-                        <input class="labels__field" type="text" id="vesselName" placeholder="Enter Vessel name (if required):" />
+                        <input class="labels__field" disabled type="text" id="ncl-vesselName" placeholder="Enter Vessel name (if required):" />
                     </label>
                     <label class="labels__label">
                         Enter PO/SO numbers Assa Abloy:
-                        <input class="labels__field" type="text" id="assaPoSo" placeholder="Enter PO/SO numbers Assa Abloy:" />
+                        <input class="labels__field" type="text" id="ncl-assaPoSo" placeholder="Enter PO/SO numbers Assa Abloy:" />
                     </label>
                     <label class="labels__label">
                         Enter TLS oredr number (or customer):
-                        <input class="labels__field" type="text" id="tlsOrder" placeholder="Enter TLS oredr number:" />
+                        <input class="labels__field" type="text" id="ncl-tlsOrder" placeholder="Enter TLS oredr number:" />
                     </label>
                     <label class="labels__label">
                         Enter items quantity in a inner box:
-                        <input class="labels__field" type="text" id="innerBoxQuantity" placeholder="Enter items quantity in a inner box (pcs.):" value="200"/>
+                        <input class="labels__field" type="text" id="ncl-innerBoxQuantity" placeholder="Enter items quantity in a inner box (pcs.):" value="500"/>
                     </label>
                     <label class="labels__label">
                         Enter items quantity in a box:
-                        <input class="labels__field" type="text" id="outerBoxQuantity" placeholder="Enter quantity of the cards in a box (pcs.):" value="3000"/>
+                        <input class="labels__field" type="text" id="ncl-outerBoxQuantity" placeholder="Enter quantity of the cards in a box (pcs.):" value="3000"/>
                     </label>
                     <label class="labels__label">
                         Enter total items quantity:
-                        <input class="labels__field" type="text" id="quantityInOrder" placeholder="Enter total cards cards quantity (pcs.):"/>
+                        <input class="labels__field" type="text" id="ncl-quantityInOrder" placeholder="Enter total cards cards quantity (pcs.):"/>
                     </label>
                 </div>
                 <div class="labels__buttons">
